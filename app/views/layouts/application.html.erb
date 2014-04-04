@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tubesock Chat</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Tubesock Chat</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <div class="container">
+    <div class="header">
+        <a href="https://manager.speedyrails.com/users/sign_up" target="speedyrails" class="btn btn-lg btn-primary pull-right">
+          Host your App
+        </a>
+      </ul>
+      <h1 class="text-muted">Tubesock Chat</h1>
+    </div>
 
-<%= yield %>
+    <div class="main">
+      <div class="row">
+        <div class="col-lg-6">
+          <p>
+          This is an example rails application to demonstrate use of websockets
+          using the Rack::Hijack feature.
+          </p>
 
-</body>
+          <p>
+          This sample application uses <strong>tubesock</strong> gem and we
+          serve it using nginx for static assets and puma webserver as ruby
+          application server.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; 2006-<%= Time.now.year %>
+      <a href="https://speedyrails.com" target="speedyrails">Speedyrails Inc</a>
+    </div>
+  </div>
+  </body>
 </html>
