@@ -1,4 +1,4 @@
-SockChat::Application.routes.draw do
-  root to: 'chat#index'
+TubesockChat::Application.routes.draw do
   get '/chat' => 'chat#chat'
+  root to: 'chat#index'
 end

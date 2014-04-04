@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SockChat::Application.load_tasks
+TubesockChat::Application.load_tasks
