@@ -1,5 +1,9 @@
-= Sock Chat
+= Tubesock Chat
 
 Uses tubesock and redis to do pub/sub chatting purely with threads on puma.
 
 Just run `rails server` and open multiple browser windows, then hang out with yourself.
+
+== Hosting in speedyrails
+
+To host applications that uses Rack::Hijack just include puma in your Gemfile. We will take care of the rest.
