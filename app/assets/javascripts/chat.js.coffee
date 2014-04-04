@@ -3,7 +3,7 @@ $ ->
 
   socket.onmessage = (event) ->
     if event.data.length
-      $("#output").append "#{event.data}<br>"
+      $("#chat-window").append "#{event.data}<br>"
 
   $("body").on "submit", "form.chat", (event) ->
     event.preventDefault()
