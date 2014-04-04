@@ -1,0 +1,20 @@
+@import 'bootstrap';
+@import 'bootstrap/theme';
+
+.header {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+#chat-window {
+  min-height: 400px;
+}
+
+.footer {
+  padding-top: 10px;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: small;
+}
