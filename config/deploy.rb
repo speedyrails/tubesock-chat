@@ -1,4 +1,4 @@
-require 'puma/capistrano'
+# require 'puma/capistrano'
 require 'bundler/capistrano'
 load 'deploy/assets'
 
@@ -33,5 +33,10 @@ namespace :deploy do
   desc "Custom Symlinks"
   task :symlink_custom, :roles => [:app] do
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/puma #{release_path}/config/puma"
+  end
+
+  desc "Restart server"
+  task :restart, :roles => [:app] do
+    run "/etc/init.d/puma restart #{application}"
   end
 end
