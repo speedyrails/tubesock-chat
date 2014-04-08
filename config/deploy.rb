@@ -29,7 +29,17 @@ namespace :deploy do
     run "if [ -d #{release_path}/tmp ]; then rm -rf #{release_path}/tmp; fi; ln -nfs #{deploy_to}/#{shared_dir}/tmp #{release_path}/tmp"
   end
 
-  desc "Restart server"
+  desc "Start puma server"
+  task :start, :roles => [:app] do
+    run "/etc/init.d/puma start #{application}"
+  end
+
+  desc "Stop puma server"
+  task :stop, :roles => [:app] do
+    run "/etc/init.d/puma stop #{application}"
+  end
+
+  desc "Restart puma server"
   task :restart, :roles => [:app] do
     run "/etc/init.d/puma restart #{application}"
   end
