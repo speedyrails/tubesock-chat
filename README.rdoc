@@ -1,22 +1,15 @@
 = Tubesock Chat
 
-Uses tubesock and redis to do pub/sub chatting purely with threads on puma.
+Uses <b>tubesock</b> and redis to do pub/sub chatting purely with threads on puma.
 
-Just run `rails server` and open multiple browser windows, then hang out with yourself.
+Just run <tt>rails server</tt> and open multiple browser windows, then hang out with yourself.
 
 == Hosting in speedyrails
 
-To host applications that uses Rack::Hijack just include puma in your Gemfile. We will take care of the rest.
+To host applications that uses <tt>Rack::Hijack</tt> just include <tt>puma</tt> in your <tt>Gemfile</tt>. We will take care of the rest.
 
 == Deploying with capistrano
 
-<strong>DO NOT</strong> add <tt>require 'puma/capistrano'</tt> on your <tt>config/deploy.rb</tt>.
+<b>DO NOT</b> add <tt>require 'puma/capistrano'</tt> to your <tt>config/deploy.rb</tt>.
 
-To restart puma after deploy just override <tt>deploy:restart</tt> task:
-
-  namespace :deploy do
-    desc "Restart application server"
-    task :restart, :roles => [:app] do
-      run "/etc/init.d/puma restart #{application}"
-    end
-  end
+Read {config/deploy.rb}[https://github.com/speedyrails/tubesock-chat/blob/master/config/deploy.rb] file for an example configuration.
