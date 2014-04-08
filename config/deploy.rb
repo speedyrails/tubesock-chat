@@ -1,4 +1,3 @@
-# require 'puma/capistrano'
 require 'bundler/capistrano'
 load 'deploy/assets'
 
@@ -20,7 +19,7 @@ set :keep_releases, 5
 
 after "deploy", "deploy:cleanup"
 after "deploy:migrations", "deploy:cleanup"
-after "deploy:update_code", "deploy:symlink_configs", "deploy:symlink_custom"
+after "deploy:update_code", "deploy:symlink_configs" #, "deploy:symlink_custom"
 
 namespace :deploy do
 
@@ -28,11 +27,6 @@ namespace :deploy do
   task :symlink_configs, :roles => [:app] do
     run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
     run "if [ -d #{release_path}/tmp ]; then rm -rf #{release_path}/tmp; fi; ln -nfs #{deploy_to}/#{shared_dir}/tmp #{release_path}/tmp"
-  end
-
-  desc "Custom Symlinks"
-  task :symlink_custom, :roles => [:app] do
-    run "ln -nfs #{deploy_to}/#{shared_dir}/config/puma #{release_path}/config/puma"
   end
 
   desc "Restart server"
