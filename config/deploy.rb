@@ -19,13 +19,13 @@ set :keep_releases, 5
 
 after "deploy", "deploy:cleanup"
 after "deploy:migrations", "deploy:cleanup"
-after "deploy:update_code", "deploy:symlink_configs" #, "deploy:symlink_custom"
+after "deploy:update_code", "deploy:symlink_configs"
 
 namespace :deploy do
 
   desc "Tasks to execute after code update"
   task :symlink_configs, :roles => [:app] do
-    run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
+    # run "ln -nfs #{deploy_to}/#{shared_dir}/config/database.yml #{release_path}/config/database.yml"
     run "if [ -d #{release_path}/tmp ]; then rm -rf #{release_path}/tmp; fi; ln -nfs #{deploy_to}/#{shared_dir}/tmp #{release_path}/tmp"
   end
 
